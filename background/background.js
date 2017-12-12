@@ -117,6 +117,11 @@ function inject (id) {
     chrome.tabs.executeScript(id, {file: 'content/emoji.js', runAt: 'document_start'})
   }
   chrome.tabs.executeScript(id, {file: 'content/content.js', runAt: 'document_start'})
+
+  chrome.tabs.insertCSS(id, {file: 'vendor/katex/katex.min.css', runAt: 'document_start'})
+  chrome.tabs.insertCSS(id, {file: 'vendor/texmath.css', runAt: 'document_start'})
+  chrome.tabs.executeScript(id, {file: 'vendor/katex/katex.min.js', runAt: 'document_start'})
+  chrome.tabs.executeScript(id, {file: 'vendor/texmath.js', runAt: 'document_start'})
 }
 
 chrome.tabs.onUpdated.addListener((id, info, tab) => {

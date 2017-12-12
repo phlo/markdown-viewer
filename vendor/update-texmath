@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# texmath
+URL="https://raw.githubusercontent.com/goessner/markdown-it-texmath/master"
+
+for f in texmath.js css/texmath.css
+do
+  wget "$URL/$f"
+done
+
+# katex
+wget https://github.com/$(curl -Ls https://github.com/Khan/KaTeX/releases/latest | grep -o "\".*download.*tar.gz\"" | tr -d '"')
+tar xvfz katex.tar.gz
+
+# fix fonts
+sed -i 's;fonts/;chrome-extension://__MSG_@@extension_id__/vendor/katex/fonts/;g' katex/katex.min.css

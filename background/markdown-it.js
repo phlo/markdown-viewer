@@ -17,7 +17,10 @@ md['markdown-it'] = {
     typographer: 'Enable some language-neutral replacement + quotes beautification',
     xhtmlOut: 'Use / to close single tags (<br />)'
   },
-  compile: (markdown) =>
-    markdownit(state['markdown-it'])
-      .render(markdown)
+  compile: (markdown) => {
+    var md = markdownit(state['markdown-it'])
+    const tm = texmath.use(katex)
+    md.use(tm, {delimiters : 'gitlab'})
+    return md.render(markdown)
+  }
 }

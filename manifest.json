@@ -22,6 +22,8 @@
 
   "background" : {
     "scripts": [
+      "/vendor/katex/katex.min.js",
+      "/vendor/texmath.js",
       "/vendor/marked.min.js",
       "/vendor/remark.min.js",
       "/vendor/remark-html.min.js",
@@ -47,6 +49,11 @@
   },
 
   "web_accessible_resources": [
+    "/vendor/katex/fonts/*.woff2",
+    "/vendor/katex/fonts/*.woff",
+    "/vendor/katex/fonts/*.ttf",
+    "/vendor/katex/fonts/*.eot",
+
     "/themes/github.css",
     "/themes/github-dark.css",
 
